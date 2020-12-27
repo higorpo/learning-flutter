@@ -1,8 +1,8 @@
+import 'package:flutter/material.dart';
+import 'package:bytebank2/components/loading_items.dart';
 import 'package:bytebank2/database/dao/contact_dao.dart';
 import 'package:bytebank2/models/contact.dart';
-import 'package:flutter/material.dart';
-
-import 'contact_form.dart';
+import 'package:bytebank2/screens/contact_form.dart';
 
 class ContactsList extends StatefulWidget {
   @override
@@ -26,17 +26,7 @@ class _ContactsListState extends State<ContactsList> {
             case ConnectionState.none:
               break;
             case ConnectionState.waiting:
-              return Center(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    CircularProgressIndicator(),
-                    SizedBox(height: 10),
-                    Text('Carregando...'),
-                  ],
-                ),
-              );
+              return LoadingItems();
               break;
             case ConnectionState.active:
               break;

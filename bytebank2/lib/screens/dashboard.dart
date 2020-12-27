@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
-import 'contacts_list.dart';
+import 'package:bytebank2/components/card_nav_item.dart';
+import 'package:bytebank2/screens/contacts_list.dart';
+import 'package:bytebank2/screens/transactions_list.dart';
 
 class Dashboard extends StatelessWidget {
   @override
@@ -19,37 +20,36 @@ class Dashboard extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Material(
-              color: Theme.of(context).primaryColor,
-              child: InkWell(
-                onTap: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => ContactsList()));
-                },
-                child: Container(
-                  height: 100,
-                  width: 150,
-                  padding: EdgeInsets.all(8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Icon(Icons.people, color: Colors.white, size: 32.0),
-                      Text(
-                        'Contacts',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ],
-                  ),
+            child: Row(
+              children: <Widget>[
+                CardNavItem(
+                  Icons.monetization_on,
+                  'Transactions',
+                  Theme.of(context).accentColor,
+                  () => _goToTransactionsScreen(context),
                 ),
-              ),
+                SizedBox(width: 5),
+                CardNavItem(
+                  Icons.people,
+                  'Contacts',
+                  Theme.of(context).primaryColor,
+                  () => _goToContactsScreen(context),
+                ),
+              ],
             ),
           ),
         ],
       ),
     );
+  }
+
+  Future _goToContactsScreen(BuildContext context) {
+    return Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => ContactsList()));
+  }
+
+  Future _goToTransactionsScreen(BuildContext context) {
+    return Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => TransactionsList()));
   }
 }
