@@ -4,7 +4,7 @@ import 'package:bytebank/http/webclient.dart';
 import 'package:http/http.dart';
 
 const MESSAGES_URI =
-    "https://gist.githubusercontent.com/guilhermesilveira/e3494abea95343c5e9f9ee0b9c41acc9/raw/bef530efe258fd5bcf2efa3ea68f5d789d8341da/";
+    "https://gist.githubusercontent.com/higorpo/e0afe2d54164d8773a9e9472a0667e21/raw/bef530efe258fd5bcf2efa3ea68f5d789d8341da/";
 
 class I18NWebClient {
   final String _viewKey;
