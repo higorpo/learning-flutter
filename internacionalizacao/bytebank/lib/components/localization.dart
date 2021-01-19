@@ -141,7 +141,7 @@ class I18NLoadingView extends StatelessWidget {
 
 class I18NMessagesCubit extends Cubit<I18NMessagesState> {
   final LocalStorage storage =
-          new LocalStorage('local_unsecure_version_1.json');
+      new LocalStorage('local_unsecure_version_1.json');
   final String _viewKey;
 
   I18NMessagesCubit(this._viewKey) : super(InitI18NMessagesState());
